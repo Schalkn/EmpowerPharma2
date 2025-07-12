@@ -124,6 +124,7 @@ namespace EmpowerPharma
             // For real countdown, you'd use JS or Timer control
         }
 
+
         private void GeneratePrescriptionPdf()
         {
             string folder = Server.MapPath("~/Prescriptions");
@@ -180,13 +181,18 @@ namespace EmpowerPharma
             }
         }
 
+
         protected void btnSubmitOtp_Click(object sender, EventArgs e)
         {
             string enteredOtp = txtOtpInput.Text.Trim();
             if (Session["CurrentOtp"] != null && enteredOtp == Session["CurrentOtp"].ToString())
             {
                 // OTP verified!
+
                 GeneratePrescriptionPdf();
+
+                // TODO: Save prescription
+
                 lblOtpInstructions.Text = "OTP Verified! Prescription saved.";
             }
             else
