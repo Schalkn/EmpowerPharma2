@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Create Prescription" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreateP.aspx.cs" Inherits="EmpowerPharma.CreateP" %>
+﻿<%@ Page Title="Create Prescription" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="CreatePresc.aspx.cs" Inherits="EmpowerPharma.CreatePresc" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">

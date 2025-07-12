@@ -116,7 +116,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Custom.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CreateP.aspx" />
+    <Content Include="CreatePresc.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -181,12 +181,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateP.aspx.cs">
-      <DependentUpon>CreateP.aspx</DependentUpon>
+    <Compile Include="CreatePresc.aspx.cs">
+      <DependentUpon>CreatePresc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateP.aspx.designer.cs">
-      <DependentUpon>CreateP.aspx</DependentUpon>
+    <Compile Include="CreatePresc.aspx.designer.cs">
+      <DependentUpon>CreatePresc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>

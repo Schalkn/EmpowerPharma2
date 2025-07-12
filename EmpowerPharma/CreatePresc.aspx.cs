@@ -4,7 +4,7 @@ using System.Web.UI;
 
 namespace EmpowerPharma
 {
-    public partial class CreateP : System.Web.UI.Page
+    public partial class CreatePresc : System.Web.UI.Page
     {
         protected static List<Product> ProductsList = new List<Product>();
         protected static List<Patient> PatientsList = new List<Patient>();
