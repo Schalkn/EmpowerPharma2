@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.UI;
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace EmpowerPharma
 {
@@ -121,13 +124,75 @@ namespace EmpowerPharma
             // For real countdown, you'd use JS or Timer control
         }
 
+
+        private void GeneratePrescriptionPdf()
+        {
+            string folder = Server.MapPath("~/Prescriptions");
+            if (!Directory.Exists(folder))
+            {
+                Directory.CreateDirectory(folder);
+            }
+
+            string filePath = Path.Combine(folder,
+                $"Prescription_{DateTime.Now:yyyyMMddHHmmss}.pdf");
+
+            using (FileStream fs = new FileStream(filePath, FileMode.Create))
+            {
+                Document doc = new Document(PageSize.A4);
+                PdfWriter.GetInstance(doc, fs);
+                doc.Open();
+
+                // Doctor details
+                doc.Add(new Paragraph(lblDoctorInfo.Text));
+                doc.Add(Chunk.NEWLINE);
+
+                // Products table
+                doc.Add(new Paragraph("Products"));
+                PdfPTable prodTable = new PdfPTable(4);
+                prodTable.AddCell("Product");
+                prodTable.AddCell("Quantity");
+                prodTable.AddCell("Price");
+                prodTable.AddCell("Description");
+                foreach (var p in ProductsList)
+                {
+                    prodTable.AddCell(p.Name);
+                    prodTable.AddCell(p.Quantity.ToString());
+                    prodTable.AddCell(p.Price.ToString("C"));
+                    prodTable.AddCell(p.Description);
+                }
+                doc.Add(prodTable);
+                doc.Add(Chunk.NEWLINE);
+
+                // Patients table
+                doc.Add(new Paragraph("Patients"));
+                PdfPTable patTable = new PdfPTable(3);
+                patTable.AddCell("Name");
+                patTable.AddCell("ID Number");
+                patTable.AddCell("Mobile");
+                foreach (var pt in PatientsList)
+                {
+                    patTable.AddCell(pt.Name);
+                    patTable.AddCell(pt.IDNumber);
+                    patTable.AddCell(pt.Mobile);
+                }
+                doc.Add(patTable);
+
+                doc.Close();
+            }
+        }
+
+
         protected void btnSubmitOtp_Click(object sender, EventArgs e)
         {
             string enteredOtp = txtOtpInput.Text.Trim();
             if (Session["CurrentOtp"] != null && enteredOtp == Session["CurrentOtp"].ToString())
             {
                 // OTP verified!
+
+                GeneratePrescriptionPdf();
+
                 // TODO: Save prescription
+
                 lblOtpInstructions.Text = "OTP Verified! Prescription saved.";
             }
             else
