@@ -11,7 +11,7 @@ namespace EmpowerPharma
 {
 
 
-    public partial class CreateP
+    public partial class CreatePresc
     {
 
         /// <summary>

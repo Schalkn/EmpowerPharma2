@@ -90,6 +90,9 @@
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\packages\itextsharp.5.5.13.3\lib\net45\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
@@ -116,7 +119,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Custom.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="CreateP.aspx" />
+    <Content Include="CreatePresc.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -181,12 +184,12 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="CreateP.aspx.cs">
-      <DependentUpon>CreateP.aspx</DependentUpon>
+    <Compile Include="CreatePresc.aspx.cs">
+      <DependentUpon>CreatePresc.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="CreateP.aspx.designer.cs">
-      <DependentUpon>CreateP.aspx</DependentUpon>
+    <Compile Include="CreatePresc.aspx.designer.cs">
+      <DependentUpon>CreatePresc.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -223,6 +226,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Prescriptions\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
